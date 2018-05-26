@@ -5,8 +5,7 @@
 * `src` folder is on the root directory
 * `Makefile` is on the root directory
 
-
-### What happens when you run `make`?
+### What happens when I run `make`?
 
 * Your `.cpp` files in the `src` directory are built into object files in a new folder on the root directory called `bin`
 * Those objects are used to create your executable on the root directory
