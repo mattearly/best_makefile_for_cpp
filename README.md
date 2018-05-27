@@ -1,6 +1,6 @@
 # best_makefile_for_cpp
 
-### This Makefile if for a code structure with the following criteria:
+### This Makefile is for a project folder structure with the following criteria:
 
 * `src` folder is on the root directory
 * `Makefile` is on the root directory
