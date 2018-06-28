@@ -4,8 +4,7 @@ SRC_DIR = src
 BUILD_DIR = bin
 CXXFLAGS = -std=c++11 -O2 -Wall -Wextra
 SOURCES := $(shell find $(SRC_DIR) -name '*.cpp')
-PREP = $(patsubst $(SRC_DIR)/%, %, $(SOURCES))
-OBJECTS := $(addprefix $(BUILD_DIR)/, $(PREP:%.cpp=%.o))
+OBJECTS := $(addprefix $(BUILD_DIR)/, $(SOURCES:$(SRC_DIR)/%.cpp=%.o))
 
 default: 
 	mkdir -p bin
