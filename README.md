@@ -1,6 +1,6 @@
 # best_makefile_for_cpp
 
-*best in my current opinion of building this, there is probably a better makefile but I like this because it keeps things simple and can work great for about any project*
+*best in my current opinion at the time of building this, there is probably a better makefile but I like this because it keeps things simple and can work great for about any project*
 
 ### This Makefile is for a project folder structure with the following criteria:
 
