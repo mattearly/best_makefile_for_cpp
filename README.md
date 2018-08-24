@@ -1,9 +1,17 @@
 # best_makefile_for_cpp
 
+* best in my current opinion of building this, there is probably a better makefile but I like this because it keeps things simple and can work great for about any project *
+
 ### This Makefile is for a project folder structure with the following criteria:
 
-* `src` folder is on the root directory and holds all your `.cpp` files
-* `Makefile` is on the root directory
+* A `src` folder is on your project root directory and holds all your `.cpp` files
+* This `Makefile` is on the root directory of your project
+
+##### should look like this
+  * project_folder/
+    * src/
+    * Makefile
+    * anything_else
 
 ### What happens when I run `make`?
 
