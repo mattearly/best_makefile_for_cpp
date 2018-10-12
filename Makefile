@@ -7,13 +7,8 @@ LDFLAGS = # add libraries for your project here
 LOADLIBS = # add library linker commands here (start with -l)
 LDLIBS = # add library search paths here (start with -L)
 
-# not all computers will have the same 'find'
-# SOURCES := $(shell find $(SRC_DIR) -name '*.cpp')
-# OBJECTS := $(addprefix $(BUILD_DIR)/, $(SOURCES:$(SRC_DIR)/%.cpp=%.o))
-
-# this is a more reliable way to find all objects across systems
+# finds all your objects that corrispond to your .cpp files, system agnostic version
 OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard $(SRC_DIR)/*.cpp))
-
 
 default: 
 	mkdir -p $(BUILD_DIR)
@@ -36,6 +31,6 @@ run:
 
 .PHONY: help
 help:
-	@echo "`make`       - builds/updates everything, is ready to run with `./$(TARGET)` after completion"
+	@echo "`make`       - builds/updates everything, is ready to run with `$(RUN)` after completion"
 	@echo "`make clean` - removes object file folder and executable"
 	@echo "`make run`   - builds/updates everything, runs immediately"
