@@ -1,8 +1,11 @@
 TARGET = your_exe_name
-RUN = ./your_exe_name
+RUN = ./$(TARGET)
 SRC_DIR = src
 BUILD_DIR = bin
-CXXFLAGS = -std=c++11 -O2 -Wall -Wextra
+CFLAGS = -std=c++11 -Wall -Wextra  #add more CompilerFLAGS as your project requires
+LDFLAGS = # add libraries for your project here
+LOADLIBS = # add library linker commands here (start with -l)
+LDLIBS = # add library search paths here (start with -L)
 
 # not all computers will have the same 'find'
 # SOURCES := $(shell find $(SRC_DIR) -name '*.cpp')
@@ -17,10 +20,10 @@ default:
 	+$(MAKE) $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) $(CXXFLAGS) -o $(TARGET)
+	$(CXX) $(OBJECTS) $(CFLAGS) -o $@ $(LOADLIBS) $(LDFLAGS) $(LDLIBS)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@ 
+	$(CXX) $(CFLAGS) -c $< -o $@ $(LOADLIBS) $(LDFLAGS) $(LDLIBS)
 
 .PHONY: clean
 clean:
@@ -33,6 +36,6 @@ run:
 
 .PHONY: help
 help:
-	@echo \'make\' - builds/updates everything, is ready to run with \'./your_exe_name\' after completion
-	@echo \'make clean\' - removes object file folder and executable
-	@echo \'make run\' - builds/updates everything, runs immediately 
+	@echo "`make`       - builds/updates everything, is ready to run with `./$(TARGET)` after completion"
+	@echo "`make clean` - removes object file folder and executable"
+	@echo "`make run`   - builds/updates everything, runs immediately"
