@@ -1,22 +1,18 @@
 # best_makefile_for_cpp
 
-*best in my current opinion at the time of building this, there is probably a better makefile but I like this because it keeps things simple and can work great for about any project*
+*Works great for about any cpp project*
 
-### This Makefile is for a project folder structure with the following criteria:
-
-* A `src` folder is on your project root directory and holds all your `.cpp` files
-* This `Makefile` is on the root directory of your project
-
-##### should look like this
-  * project_folder/
-    * src/
-    * Makefile
-    * anything_else
+### Default use folder structure
+  * `project_root/`
+    * `src/`
+    * `Makefile`
+    * `otherfiles`
 
 ### What happens when I run `make`?
 
-* Your `.cpp` files in the `src` directory are built into object files and placed in a new folder on the root directory called `bin`
-* Those objects are used to create your executable on the root directory
+1. creates `bin/` folder at project root
+2. `.cpp` files located in `project_root/src/` are built into `.o` files and placed in `bin/`
+3. `.o` files are linked together make your execuatable at project root
 
 ### What happens when I run `make clean`?
 
@@ -25,3 +21,8 @@
 ### Limitations
 
 * Does not check header files - run `make clean && make` if you've updated a header file with any significant changes
+
+### Other
+
+* `make help` - shows help menu (you probably wont need it now that you read this)
+* `make run` - updates binaries and executables as neccessary and starts your program
