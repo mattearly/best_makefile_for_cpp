@@ -10,7 +10,7 @@ LDLIBS = # add library search paths here (start with -L)
 # finds all your objects that corrispond to your .cpp files, system agnostic version
 OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard $(SRC_DIR)/*.cpp))
 
-default: 
+all: 
 	mkdir -p $(BUILD_DIR)
 	+$(MAKE) $(TARGET)
 
