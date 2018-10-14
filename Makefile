@@ -6,19 +6,18 @@ CFLAGS = -std=c++11 -Wall -Wextra  #add more CompilerFLAGS as your project requi
 LDFLAGS = # add libraries for your project here
 LOADLIBS = # add library linker commands here (start with -l)
 LDLIBS = # add library search paths here (start with -L)
-
-# finds all your objects that corrispond to your .cpp files, system agnostic version
-OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard $(SRC_DIR)/*.cpp))
+INC = # add include paths (start with -I)
+OBJECTS := $(patsubst $(SRC_DIR)/%.cpp, $(BUILD_DIR)/%.o, $(wildcard $(SRC_DIR)/*.cpp)) # finds all your objects that corrispond to your .cpp files, system agnostic version
 
 all: 
 	mkdir -p $(BUILD_DIR)
 	+$(MAKE) $(TARGET)
 
 $(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) $(CFLAGS) -o $@ $(LOADLIBS) $(LDFLAGS) $(LDLIBS)
+	$(CXX) $(OBJECTS) $(CFLAGS) -o $@ $(LOADLIBS) $(LDFLAGS) $(LDLIBS) $(INC)
 
 $(BUILD_DIR)/%.o: $(SRC_DIR)/%.cpp
-	$(CXX) $(CFLAGS) -c $< -o $@ $(LOADLIBS) $(LDFLAGS) $(LDLIBS)
+	$(CXX) $(CFLAGS) -c $< -o $@ $(LOADLIBS) $(LDFLAGS) $(LDLIBS) $(INC)
 
 .PHONY: clean
 clean:
