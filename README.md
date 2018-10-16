@@ -4,19 +4,19 @@
 
 ### Default use folder structure
   * `project_root/`
+    * `bin/`
     * `src/`
     * `Makefile`
-    * `otherfiles`
 
 ### What happens when I run `make`?
 
 1. creates `bin/` folder at project root
-2. `.cpp` files located in `project_root/src/` are built into `.o` files and placed in `bin/`
-3. `.o` files are linked together make your execuatable at project root
+2. `.cpp` files located in `src/` are built into `.o` files and placed in `bin/`
+3. `.o` files are linked together make your executable at project root
 
 ### What happens when I run `make clean`?
 
-* The `bin` folder is deleted and the executable is deleted
+* The `bin/` folder is deleted and the executable is deleted
 
 ### Limitations
 
